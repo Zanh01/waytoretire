@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXPJ5DJ51V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MXPJ5DJ51V');
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retirement Calculator - How Much Money Do I Need to Retire?</title>
@@ -112,6 +101,50 @@
             background: #fff5e6;
             border-radius: 8px;
         }
+		.toggle-guide {
+    margin: 25px 0 10px;
+    background: #27ae60 !important;
+}
+
+.toggle-guide:hover {
+    background: #219a52 !important;
+}
+
+.guide {
+    margin-top: 30px;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.step {
+    border-left: 3px solid var(--secondary-color);
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 0 8px 8px 0;
+}
+
+.step-header {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.step-content {
+    padding-left: 15px;
+    border-left: 2px solid #ddd;
+    margin-left: 10px;
+}
+
+.step-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.step-content li {
+    margin: 8px 0;
+}
     </style>
 </head>
 <body>
@@ -196,7 +229,67 @@
                 <div id="output"></div>
             </div>
         </section>
+<button onclick="toggleGuide()" class="toggle-guide">📘 Show/Hide Early Retirement Guide</button>
 
+<div class="guide" id="guide">
+    <h2>5 Steps to Early Retirement</h2>
+    
+    <div class="step">
+        <div class="step-header">🚀 Step 1: Calculate Your FI Number</div>
+        <div class="step-content">
+            <p>Financial Independence (FI) occurs when your investments cover living expenses. Use the 4% rule (IF you want to retire earlier => Use the Retirement Calculator above): <br>
+            <strong>FI Number = Annual Expenses × 25</strong></p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-header">💸 Step 2: Optimize Savings Rate</div>
+        <div class="step-content">
+            <p>Aim for 50-70% savings rate:
+            <ul>
+                <li>Reduce housing costs</li>
+                <li>Cut discretionary spending</li>
+                <li>Increase income streams</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-header">📈 Step 3: Strategic Investing</div>
+        <div class="step-content">
+            <p>Focus on:
+            <ul>
+                <li>Low-cost index funds (VTI, VXUS)</li>
+                <li>Tax-advantaged accounts (401k, IRA)</li>
+                <li>Diversified portfolio allocation</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-header">🌍 Step 4: Geographic Arbitrage</div>
+        <div class="step-content">
+            <p>Consider lower-cost living areas:
+            <ul>
+                <li>SE Asia: Thailand, Vietnam</li>
+                <li>Latin America: Mexico, Colombia</li>
+                <li>Europe: Portugal, Georgia</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-header">🛠️ Step 5: Withdrawal Strategy</div>
+        <div class="step-content">
+            <p>Follow safe withdrawal methods:
+            <ul>
+                <li>4% Rule (Trinity Study)</li>
+                <li>Variable percentage withdrawal</li>
+                <li>Bucket strategy (cash buffer)</li>
+            </ul>
+        </div>
+    </div>
+</div>
         <section class="faq">
             <h2>❓ Frequently Asked Questions</h2>
             <div class="faq-item">
@@ -250,6 +343,10 @@
                 <p>⏳ Years to save: <strong>${yearsToRetire}</strong></p>
             `;
         }
+		function toggleGuide() {
+    const guide = document.getElementById('guide');
+    guide.style.display = guide.style.display === 'none' ? 'block' : 'none';
+}
     </script>
 
     <script type="application/ld+json">

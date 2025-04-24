@@ -14,9 +14,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retirement Calculator - How Much Money Do I Need to Retire?</title>
-    <meta name="description" content="Calculate exactly how much money you need to retire with our smart financial planning tool. Determine your retirement number based on living expenses, inflation, and life expectancy.">
-    <style>
+    <title>Early Retirement: Guide and Strategies for Your Financial Future, Retirement Calculator</title>
+    <meta name="description" content="Discover strategies, tools, and success stories to achieve early retirement. Start planning your finances today. Calculate exactly how much money you need to retire with our smart financial planning tool. Determine your retirement number based on living expenses, inflation, and life expectancy.">
+    <meta name="keywords" content="early retirement, financial independence, retirement planning, saving, investing, passive income">
+	<style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
@@ -160,8 +161,39 @@
 </head>
 <body>
     <div class="container">
-        <h1>💰 Smart Retirement Calculator - Find Your Freedom Number</h1>
-        
+        <h1>Way to retire: Guide and Strategies for Your Financial Future</h1>
+        <p>Welcome to <strong>waytoretire.net</strong> – your source for information, advice, and strategies to help you achieve your early retirement goals.</p>
+    <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#strategies">Strategies</a>
+        <a href="#tools">Tools</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </nav>
+	<section id="intro">
+        <h2>Introduction</h2>
+        <p>Have you ever dreamed of a life free from financial worries, where you can pursue your passions and spend time on what matters most? Early retirement isn't just a distant dream – it's a goal you can achieve with the right plan and strategies. At <strong>waytoretire.net</strong>, we provide you with the tools, guides, and resources to make that dream a reality.</p>
+    </section>
+	
+	<section id="strategies">
+        <h2>Early Retirement Strategies</h2>
+        <h3>10 Steps to Early Retirement</h3>
+        <p>Early retirement is achievable, but it requires commitment and a clear plan. Here are 10 key steps to get started:</p>
+        <ol>
+            <li><strong>Set Your Retirement Goals</strong>: Decide when you want to retire and the lifestyle you desire.</li>
+            <li><strong>Calculate Your Savings Target</strong>: Use our calculator to estimate how much you need to save.</li>
+            <li><strong>Create a Savings Budget</strong>: Aim to save at least 30-50% of your income for retirement.</li>
+            <li><strong>Minimize Debt</strong>: Pay off high-interest debt as soon as possible.</li>
+            <li><strong>Invest Wisely</strong>: Focus on long-term investments like index funds or real estate.</li>
+            <li><strong>Optimize Taxes</strong>: Take advantage of tax-advantaged retirement accounts.</li>
+            <li><strong>Build Passive Income</strong>: Create income streams that don't require full-time work.</li>
+            <li><strong>Monitor and Adjust Your Plan</strong>: Review your progress annually and make adjustments as needed.</li>
+            <li><strong>Prepare for Healthcare Costs</strong>: Ensure you have insurance and an emergency fund for health expenses.</li>
+            <li><strong>Enjoy the Journey</strong>: Early retirement is not just a destination but a process of growth and learning.</li>
+        </ol>
+    </section>
+	<section id="tools">
+    <h2>Tools and Resources</h2>
         <section class="benefits">
             <h2>🌟 Why Calculate Your Retirement Needs?</h2>
             <p>Comprehensive <strong>financial planning solution</strong> that helps you:</p>
@@ -241,7 +273,7 @@
             </div>
         </section>
 <button onclick="toggleGuide()" class="toggle-guide">📘 Show/Hide Early Retirement Guide</button>
-
+</section>
 <div class="guide" id="guide">
     <h2>5 Steps to Early Retirement</h2>
     
@@ -301,8 +333,13 @@
         </div>
     </div>
 </div>
+	<section id="faq">
         <section class="faq">
             <h2>❓ Frequently Asked Questions</h2>
+			<div class="faq-item">
+                <h3>What is early retirement?</h3>
+                <p>Early retirement is the concept of leaving the workforce before the traditional retirement age, often in your 40s or 50s, by achieving financial independence.</p>
+            </div>
             <div class="faq-item">
                 <h3>Why calculate retirement needs early?</h3>
                 <p>Early <strong>retirement calculation</strong> helps leverage compound growth and creates clear financial milestones.</p>
@@ -312,6 +349,7 @@
                 <p>Our algorithm accounts for inflation, life expectancy, and investment growth to provide reliable estimates.</p>
             </div>
         </section>
+	</section>
     </div>
 
     <script>
@@ -338,7 +376,12 @@
             const yearsToRetire = retireAge - currentAge;
             const retirementYears = lifeExpectancy - retireAge;
             const futureAnnualExpense = monthlyExpense * 12 * Math.pow(1 + inflation, yearsToRetire);
-            const totalNeeded = (futureAnnualExpense * retirementYears) / Math.pow(1 + investmentReturn, retirementYears);
+             // Calculate totalNeeded with inflation during retirement
+			let totalNeeded = 0;
+			for (let t = 1; t <= retirementYears; t++) {
+			const expenseInYearT = futureAnnualExpense * Math.pow(1 + inflation, t - 1);
+			totalNeeded += expenseInYearT / Math.pow(1 + investmentReturn, yearsToRetire + t);
+			}		
             const futureSavedMoney = savedMoney * Math.pow(1 + investmentReturn, yearsToRetire);
             const needToSave = totalNeeded - futureSavedMoney;
             const annualSaving = needToSave / yearsToRetire;
